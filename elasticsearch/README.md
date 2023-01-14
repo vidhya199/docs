@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm32v6` builds of [the `elasticsearch` official image](https://hub.docker.com/_/elasticsearch) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,8 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`8.6.0`](https://github.com/docker-library/elasticsearch/blob/06dbd87db84a477d0814e343cbf970c7abf69649/8/Dockerfile)
--	[`7.17.8`](https://github.com/docker-library/elasticsearch/blob/4ae79746e02c947ff9dae92f7011399f9c809f18/7/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `arm32v6` ARCHITECTURE
+
+[![arm32v6/elasticsearch build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm32v6/job/elasticsearch.svg?label=arm32v6/elasticsearch%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v6/job/elasticsearch/)
 
 # Quick reference (cont.)
 

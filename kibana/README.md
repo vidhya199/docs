@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `windows-amd64` builds of [the `kibana` official image](https://hub.docker.com/_/kibana) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,8 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`8.6.0`](https://github.com/docker-library/kibana/blob/34ba6504a0b63a5f0f9d39564c0bfd47114d94f8/8/Dockerfile)
--	[`7.17.8`](https://github.com/docker-library/kibana/blob/c98bb27941c6b2dafd6d963aab2b0cc9f0876315/7/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `windows-amd64` ARCHITECTURE
+
+[![winamd64/kibana build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/windows-amd64/job/kibana.svg?label=winamd64/kibana%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/windows-amd64/job/kibana/)
 
 # Quick reference (cont.)
 

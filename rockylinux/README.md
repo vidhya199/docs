@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `ppc64le` builds of [the `rockylinux` official image](https://hub.docker.com/_/rockylinux) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,10 +26,10 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`9.1.20221221`, `9.1`, `9`](https://github.com/rocky-linux/sig-cloud-instance-images/blob/0c5e7578276e2bd1196e340ea98fee112d305bac/Dockerfile)
--	[`9.1.20221221-minimal`, `9.1-minimal`, `9-minimal`](https://github.com/rocky-linux/sig-cloud-instance-images/blob/4925a4ada53dc186b27167d90dbe62c7d62942cc/Dockerfile)
--	[`8.7.20221219`, `8.7`, `8`](https://github.com/rocky-linux/sig-cloud-instance-images/blob/15e9cb0790bed8b6cba7b5cb2ecf3ebab6a0e6ae/Dockerfile)
--	[`8.7.20221219-minimal`, `8.7-minimal`, `8-minimal`](https://github.com/rocky-linux/sig-cloud-instance-images/blob/263f85f3cc1dfaa1824aeecfe3aee681adafe33f/Dockerfile)
+-	[`9.1.20221221`, `9.1`, `9`](https://github.com/rocky-linux/sig-cloud-instance-images/blob/9f0ff4adfd5a88f0299a077442137c8d6114dd74/Dockerfile)
+-	[`9.1.20221221-minimal`, `9.1-minimal`, `9-minimal`](https://github.com/rocky-linux/sig-cloud-instance-images/blob/fbcb0a4d53eeb6dec6e7cdf520fdafa709d15ee5/Dockerfile)
+
+[![ppc64le/rockylinux build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/rockylinux.svg?label=ppc64le/rockylinux%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/rockylinux/)
 
 # Quick reference (cont.)
 
@@ -61,21 +63,21 @@ Thank you for using Rocky Linux! We appreciate your feedback and welcome you to 
 
 # Rocky Linux image documentation
 
-The `rockylinux:latest` tag is intentionally missing. Please choose a major version (currently 8 or 9) tag, or a more specific tag to ensure you are pulling the version of Rocky Linux you want: e.g. `rockylinux:8` or `rockylinux:9`
+The `ppc64le/rockylinux:latest` tag is intentionally missing. Please choose a major version (currently 8 or 9) tag, or a more specific tag to ensure you are pulling the version of Rocky Linux you want: e.g. `ppc64le/rockylinux:8` or `ppc64le/rockylinux:9`
 
 ## Minimal variant
 
-In addition to the Base container, a Minimal container with microdnf and a stripped down dependency set is available by using any of the `-minimal` tags e.g. `rockylinux:9-minimal`
+In addition to the Base container, a Minimal container with microdnf and a stripped down dependency set is available by using any of the `-minimal` tags e.g. `ppc64le/rockylinux:9-minimal`
 
 ## Rolling builds
 
-Rocky Linux offers regularly updated images for all active releases. These images will be updated monthly or as needed for emergency fixes. These rolling updates are tagged with the major version number only. For example: `docker pull rockylinux:8`.
+Rocky Linux offers regularly updated images for all active releases. These images will be updated monthly or as needed for emergency fixes. These rolling updates are tagged with the major version number only. For example: `docker pull ppc64le/rockylinux:8`.
 
 ## Minor tags
 
 Additionally, images with minor version tags that correspond to install media are also offered. **These images DO NOT receive updates** as they are intended to match installation iso contents. If you choose to use these images it is highly recommended that you include `RUN yum -y update && yum clean all` in your Dockerfile, or otherwise address any potential security concerns. To use these images, please specify the minor version tag:
 
-For example: `docker pull rockylinux:8.4`
+For example: `docker pull ppc64le/rockylinux:8.4`
 
 # Package documentation
 

@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm64v8` builds of [the `emqx` official image](https://hub.docker.com/_/emqx) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -27,6 +29,8 @@ WARNING:
 -	[`4.3.22`, `4.3`](https://github.com/emqx/emqx-docker/blob/dd291f55ea33fd2567a31b712b504f7df5438021/4.3/Dockerfile)
 -	[`4.4.14`, `4.4`, `4`](https://github.com/emqx/emqx-docker/blob/dd291f55ea33fd2567a31b712b504f7df5438021/4.4/Dockerfile)
 -	[`5.0.14`, `5.0`, `5`, `latest`](https://github.com/emqx/emqx-docker/blob/dd291f55ea33fd2567a31b712b504f7df5438021/5.0/Dockerfile)
+
+[![arm64v8/emqx build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/emqx.svg?label=arm64v8/emqx%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/emqx/)
 
 # Quick reference (cont.)
 
@@ -66,13 +70,13 @@ EMQX boasts more than 20K+ enterprise users across 50+ countries and regions, co
 Execute some command under this docker image
 
 ```console
-$ docker run -d --name emqx emqx:${tag}
+$ docker run -d --name emqx arm64v8/emqx:${tag}
 ```
 
 For example
 
 ```console
-$ docker run -d --name emqx -p 18083:18083 -p 1883:1883 emqx:latest
+$ docker run -d --name emqx -p 18083:18083 -p 1883:1883 arm64v8/emqx:latest
 ```
 
 The EMQX broker runs as Linux user `emqx` in the docker container.
@@ -128,7 +132,7 @@ If set `EMQX_NAME` and `EMQX_HOST`, and unset `EMQX_NODE_NAME`, `EMQX_NODE_NAME=
 For example, set MQTT TCP port to 1883
 
 ```console
-$ docker run -d --name emqx -e EMQX__LISTENERS__TCP__DEFAULT__BIND=1883 -p 18083:18083 -p 1883:1883 emqx:latest
+$ docker run -d --name emqx -e EMQX__LISTENERS__TCP__DEFAULT__BIND=1883 -p 18083:18083 -p 1883:1883 arm64v8/emqx:latest
 ```
 
 #### EMQX Loaded Modules Configuration
@@ -215,7 +219,7 @@ docker run -d --name emqx -p 18083:18083 -p 1883:1883 \
     -e EMQX_LOADED_PLUGINS="emqx_retainer" \
     -e EMQX_RETAINER__STORAGE_TYPE = "ram" \
     -e EMQX_RETAINER__MAX_PAYLOAD_SIZE = 1MB \
-    emqx:latest
+    arm64v8/emqx:latest
 ```
 
 For numbered configuration options where the number is next to a `.` such as:
@@ -235,7 +239,7 @@ docker run -d --name emqx -p 18083:18083 -p 1883:1883 -p 4369:4369 \
     -e EMQX_BACKEND__REDIS__HOOK_MESSAGE__PUBLISH__3='{"topic": "persistent/topic3", "action": {"function": "on_message_publish"}, "pool": "pool1"}' \
     [...]
     -e EMQX_BACKEND__REDIS__HOOK_MESSAGE__PUBLISH__13='{"topic": "persistent/topic13", "action": {"function": "on_message_publish"}, "pool": "pool1"}' \
-    emqx:latest
+    arm64v8/emqx:latest
 ```
 
 ### Cluster
@@ -251,7 +255,7 @@ Let's create a static node list cluster from docker-compose.
 
   services:
     emqx1:
-      image: emqx:latest
+      image: arm64v8/emqx:latest
       environment:
       - "EMQX_NAME=emqx"
       - "EMQX_HOST=node1.emqx.io"
@@ -263,7 +267,7 @@ Let's create a static node list cluster from docker-compose.
           - node1.emqx.io
 
     emqx2:
-      image: emqx:latest
+      image: arm64v8/emqx:latest
       environment:
       - "EMQX_NAME=emqx"
       - "EMQX_HOST=node2.emqx.io"
@@ -316,7 +320,7 @@ volumes:
 
 services:
   emqx:
-    image: emqx:latest
+    image: arm64v8/emqx:latest
     restart: always
     environment:
       EMQX_NAME: foo_emqx
@@ -350,7 +354,7 @@ docker run -d --name emqx -p 18083:18083 -p 1883:1883 \
     --sysctl net.ipv4.tcp_wmem=1024 4096 16777216 \
     --sysctl net.ipv4.tcp_max_tw_buckets=1048576 \
     --sysctl net.ipv4.tcp_fin_timeout=15 \
-    emqx:latest
+    arm64v8/emqx:latest
 ```
 
 > REMEMBER: DO NOT RUN EMQX DOCKER PRIVILEGED OR MOUNT SYSTEM PROC IN CONTAINER TO TUNE LINUX KERNEL, IT IS UNSAFE.
